@@ -18,7 +18,7 @@ monitors:
   - id: saobby-home # unique identifier
     name: 'Saobby 个人主页前端'
     description: 'Saobby 的个人主页的前端' # default=empty
-    url: '${{ secrets.SAOBBY_HOME_URL }}' # URL to fetch
+    url: 'https://www.saobby.com/' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
     followRedirect: false # should fetch follow redirects, default=false
@@ -27,7 +27,7 @@ monitors:
   - id: saobby-pythonanywhere
     name: 'Saobby Pythonanywhere 主页'
     description: 'Saobby 的 Pythonanywhere 主页'
-    url: '${{ secrets.SAOBBY_PYTHONANYWHERE_URL }}'
+    url: 'https://saobby.pythonanywhere.com/'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -36,7 +36,7 @@ monitors:
   - id: github-proxy
     name: 'Github 反向代理'
     description: 'Github 反向代理'
-    url: '${{ secrets._GITHUB_PROXY_URL }}'
+    url: 'https://github.gitblock.cf/'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -45,7 +45,7 @@ monitors:
   - id: scratch-proxy
     name: 'Scratch 官网反向代理'
     description: 'Scratch 官网反向代理'
-    url: '${{ secrets.SCRATCH_PROXY_URL }}'
+    url: 'https://scratch.gitblock.cf/'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -54,7 +54,7 @@ monitors:
   - id: aerfaying-isolator-query
     name: '阿儿法营路障查询机'
     description: '阿儿法营路障查询机'
-    url: '${{ secrets.AERFAYING_ISOLATOR_QUERY_URL }}'
+    url: 'https://isolator.saobby.tk/'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -63,7 +63,7 @@ monitors:
   - id: api-v2
     name: '新版 API 服务'
     description: '新版 API 服务，部署在一台香港服务器'
-    url: '${{ secrets.API_V2_URL }}'
+    url: 'https://aether.saobby.com:9999/api/check_alive'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -72,25 +72,7 @@ monitors:
   - id: captcha-v2
     name: 'SaobbyCaptchaV2'
     description: 'Saobby 的第二版人机验证'
-    url: '${{ secrets.CAPTCHA_V2_URL }}'
-    method: GET
-    expectStatus: 200
-    followRedirect: false
-    linkable: false
-
-  - id: saobby-drive
-    name: 'Saobby 网盘'
-    description: 'Saobby 的 Alist 网盘'
-    url: '${{ SAOBBY_DRIVE_URL }}'
-    method: GET
-    expectStatus: 200
-    followRedirect: false
-    linkable: false
-
-  - id: genshin-server
-    name: '原神服务端'
-    description: '原神服务端'
-    url: '${{ secrets.GENSHIN_SERVER_URL }}'
+    url: 'https://aether.saobby.com:5001/'
     method: GET
     expectStatus: 200
     followRedirect: false
