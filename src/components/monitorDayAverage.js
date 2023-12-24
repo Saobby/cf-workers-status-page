@@ -5,7 +5,7 @@ export default function MonitorDayAverage({ location, avg }) {
     <>
       <br />
       <small>
-        {locations[location] || location}: {avg}ms
+        {locations[location] || location} 监测节点: {avg}ms平均响应时间
       </small>
     </>
   )
