@@ -1,39 +1,97 @@
 settings:
-  title: 'Status Page'
-  url: 'https://status-page.eidam.dev' # used for Slack messages
-  logo: logo-192x192.png # image in ./public/ folder
+  title: 'Saobby 状态 (CF Worker监测点)'
+  url: 'https://status.saobby.tk' # used for Slack messages
+  logo: logo.png # image in ./public/ folder
   daysInHistogram: 90 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
 
-  allmonitorsOperational: 'All Systems Operational'
-  notAllmonitorsOperational: 'Not All Systems Operational'
-  monitorLabelOperational: 'Operational'
-  monitorLabelNotOperational: 'Not Operational'
-  monitorLabelNoData: 'No data'
-  dayInHistogramNoData: 'No data'
-  dayInHistogramOperational: 'All good'
-  dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
+  allmonitorsOperational: '所有系统运行正常'
+  notAllmonitorsOperational: '部分系统故障'
+  monitorLabelOperational: '运行正常'
+  monitorLabelNotOperational: '故障'
+  monitorLabelNoData: '无数据'
+  dayInHistogramNoData: '无数据'
+  dayInHistogramOperational: '一切正常'
+  dayInHistogramNotOperational: ' 次故障' # xx incident(s) recorded
 
 monitors:
-  - id: workers-cloudflare-com # unique identifier
-    name: workers.cloudflare.com
-    description: 'You write code. They handle the rest.' # default=empty
-    url: 'https://workers.cloudflare.com/' # URL to fetch
+  - id: saobby-home # unique identifier
+    name: 'Saobby 个人主页前端'
+    description: 'Saobby 的个人主页的前端' # default=empty
+    url: '${{ secrets.SAOBBY_HOME_URL }}' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
     followRedirect: false # should fetch follow redirects, default=false
     linkable: false # allows the title to be a link, default=true
 
-  - id: www-cloudflare-com
-    name: www.cloudflare.com
-    description: 'Built for anything connected to the Internet.'
-    url: 'https://www.cloudflare.com'
+  - id: saobby-pythonanywhere
+    name: 'Saobby Pythonanywhere 主页'
+    description: 'Saobby 的 Pythonanywhere 主页'
+    url: '${{ secrets.SAOBBY_PYTHONANYWHERE_URL }}'
     method: GET
     expectStatus: 200
-    linkable: true # allows the title to be a link, default=true
+    followRedirect: false
+    linkable: false
 
-  - id: blog-cloudflare-com
-    name: The Cloudflare Blog
-    url: 'https://blog.cloudflare.com/'
+  - id: github-proxy
+    name: 'Github 反向代理'
+    description: 'Github 反向代理'
+    url: '${{ secrets._GITHUB_PROXY_URL }}'
     method: GET
     expectStatus: 200
+    followRedirect: false
+    linkable: false
+
+  - id: scratch-proxy
+    name: 'Scratch 官网反向代理'
+    description: 'Scratch 官网反向代理'
+    url: '${{ secrets.SCRATCH_PROXY_URL }}'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: false
+
+  - id: aerfaying-isolator-query
+    name: '阿儿法营路障查询机'
+    description: '阿儿法营路障查询机'
+    url: '${{ secrets.AERFAYING_ISOLATOR_QUERY_URL }}'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: false
+
+  - id: api-v2
+    name: '新版 API 服务'
+    description: '新版 API 服务，部署在一台香港服务器'
+    url: '${{ secrets.API_V2_URL }}'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: false
+
+  - id: captcha-v2
+    name: 'SaobbyCaptchaV2'
+    description: 'Saobby 的第二版人机验证'
+    url: '${{ secrets.CAPTCHA_V2_URL }}'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: false
+
+  - id: saobby-drive
+    name: 'Saobby 网盘'
+    description: 'Saobby 的 Alist 网盘'
+    url: '${{ SAOBBY_DRIVE_URL }}'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: false
+
+  - id: genshin-server
+    name: '原神服务端'
+    description: '原神服务端'
+    url: '${{ secrets.GENSHIN_SERVER_URL }}'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: false
