@@ -63,7 +63,7 @@ monitors:
   - id: api-v2
     name: '新版 API 服务'
     description: '新版 API 服务，部署在一台香港服务器'
-    url: 'https://aether.saobby.com:9999/api/check_alive'
+    url: 'https://alive.saobby.com/api/check_alive'
     method: GET
     expectStatus: 200
     followRedirect: false
