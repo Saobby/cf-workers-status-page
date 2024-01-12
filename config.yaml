@@ -72,7 +72,7 @@ monitors:
   - id: captcha-v2
     name: 'SaobbyCaptchaV2'
     description: 'Saobby 的第二版人机验证'
-    url: 'https://aether.saobby.com:5001/'
+    url: 'https://captcha-v2.saobby.com/'
     method: GET
     expectStatus: 200
     followRedirect: false
